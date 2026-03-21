@@ -16,13 +16,14 @@ blocks = [0] * 20
 cur = 0
 cur += offset
 for i in range(n):
-    for _ in range(x[i]):
-        if dir[i] == 'L':
-            cur -= 1
-            blocks[cur] = blocks[cur] * 10 + 1
-        elif dir[i] == 'R':
-            blocks[cur] = blocks[cur] * 10 + 2
-            cur += 1
+    if dir[i] == 'L':
+        for j in range(cur, cur - x[i], -1):
+            blocks[j] = blocks[j] * 10 + 1
+        cur = j
+    elif dir[i] == 'R':
+        for j in range(cur, cur + x[i], 1):
+            blocks[j] = blocks[j] * 10 + 2
+        cur = j
 
 
 def is_gray(num):
