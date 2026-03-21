@@ -8,16 +8,20 @@ def num_days(month, day):
     total = 0
     for m in range(1, month):
         total += month_days[m]
-    return total + day - 1
+    return total + day
 
 diff = num_days(m2, d2) - num_days(m1, d1)
 num_week = diff // 7
 weekend = day_weekend[diff % 7]
-count = 0
+count = num_week
 
-
-count += num_week
-if weekend == A:
-    count += 1
+for W in day_weekend:
+    if A == W:
+        count += 1
+    if W == weekend:
+        break
 
 print(count)
+
+# 2 5 3 9
+# Sat
