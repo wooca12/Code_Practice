@@ -11,6 +11,5 @@ while True:
     array.append(N % B)
     N = N // B
 
-print(array)
 for i in array[::-1]:
     print(i, end='')
