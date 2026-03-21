@@ -13,4 +13,4 @@ while True:
 
 print(array)
 for i in array[::-1]:
-    print(i, end=' ')
+    print(i, end='')
