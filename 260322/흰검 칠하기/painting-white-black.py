@@ -22,7 +22,6 @@ for num, direction in commands:
             num -= 1
             if num > 0:
                 cur_index += 1
-    print(blocks)
 
 w, b, g = 0, 0, 0
 for i in range(len(blocks)):
