@@ -11,8 +11,8 @@ for _ in range(n):
 
 # 흰 검 회
 # 1
-offset = 1000
-blocks = [0] * 2000
+offset = 10000
+blocks = [0] * 20000
 cur = 0
 cur += offset
 for i in range(n):
