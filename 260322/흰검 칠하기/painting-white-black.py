@@ -1,7 +1,7 @@
 n = int(input())
 commands = [tuple(input().split()) for _ in range(n)]
 
-OFFSET = 100000
+OFFSET = 10000
 blocks = [0] * (2 * OFFSET + 1)
 count_b = [0] * (2 * OFFSET + 1)
 count_w = [0] * (2 * OFFSET + 1)
@@ -9,7 +9,7 @@ cur_index = OFFSET
 for num, direction in commands:
     num = int(num)
     if direction == 'L':
-        for i in range(cur_index, cur_index - num, 1):
+        for i in range(cur_index, cur_index - num, -1):
             blocks[i] = 1
             count_w[i] += 1
             cur_index = i
@@ -18,6 +18,7 @@ for num, direction in commands:
             blocks[i] = 2
             count_b[i] += 1
             cur_index = i
+    print(blocks)
 
 w, b, g = 0, 0, 0
 for i in range(len(blocks)):
