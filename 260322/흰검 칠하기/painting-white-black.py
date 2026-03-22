@@ -1,7 +1,7 @@
 n = int(input())
 commands = [tuple(input().split()) for _ in range(n)]
 
-OFFSET = 10
+OFFSET = 100000
 blocks = [0] * (2 * OFFSET + 1)
 count_b = [0] * (2 * OFFSET + 1)
 count_w = [0] * (2 * OFFSET + 1)
