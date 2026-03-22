@@ -9,11 +9,10 @@ cur_index = OFFSET
 for num, direction in commands:
     num = int(num)
     if direction == 'L':
-        while num > 0:
-            for i in range(cur_index, cur_index - num, 1):
-                blocks[i] = 1
-                count_w[i] += 1
-                cur_index = i
+        for i in range(cur_index, cur_index - num, 1):
+            blocks[i] = 1
+            count_w[i] += 1
+            cur_index = i
     elif direction == 'R':
         for i in range(cur_index, cur_index + num, 1):
             blocks[i] = 2
