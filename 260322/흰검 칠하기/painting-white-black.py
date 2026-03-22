@@ -1,37 +1,44 @@
+MAX_K = 100000
+# 변수 선언 및 입력:
 n = int(input())
-commands = [tuple(input().split()) for _ in range(n)]
+a = [0] * (2 * MAX_K + 1)
+cnt_b = [0] * (2 * MAX_K + 1)
+cnt_w = [0] * (2 * MAX_K + 1)
+b, w, g = 0, 0, 0
 
-OFFSET = 100000
-blocks = [0] * (2 * OFFSET + 1)
-count_b = [0] * (2 * OFFSET + 1)
-count_w = [0] * (2 * OFFSET + 1)
-cur_index = OFFSET
-for num, direction in commands:
-    num = int(num)
-    if direction == 'L':
-        while num > 0:
-            blocks[cur_index] = 1
-            count_w[cur_index] += 1
-            num -= 1
-            if num > 0:
-                cur_index -= 1
-    elif direction == 'R':
-        while num > 0:
-            blocks[cur_index] = 2
-            count_b[cur_index] += 1
-            num -= 1
-            if num > 0:
-                cur_index += 1
+cur = MAX_K
+for _ in range(n):
+    x, c = tuple(input().split())
+    x = int(x)
 
-w, b, g = 0, 0, 0
-for i in range(len(blocks)):
-    if count_b[i] == 2 and count_w[i] == 2:
+    if c == 'L':
+        # x칸 왼쪽으로 칠합니다.
+        while x > 0:
+            a[cur] = 1
+            cnt_w[cur] += 1
+            x -= 1
+
+            if x: 
+                cur -= 1
+    else:
+        # x칸 오른쪽으로 칠합니다.
+        while x > 0:
+            a[cur] = 2
+            cnt_b[cur] += 1
+            x -= 1
+
+            if x: 
+                cur += 1
+
+for i in range(2 * MAX_K + 1):
+    # 검은색과 흰색으로 두 번 이상 칠해진 타일은 회색입니다.
+    if cnt_b[i] >= 2 and cnt_w[i] >= 2: 
         g += 1
-    elif blocks[i] == 1:
+    # 그렇지 않으면 현재 칠해진 색깔이 곧 타일의 색깔입니다.
+    elif a[i] == 1: 
         w += 1
-    elif blocks[i] == 2:
+    elif a[i] == 2: 
         b += 1
+
+# 정답을 출력합니다.
 print(w, b, g)
-
-
-
