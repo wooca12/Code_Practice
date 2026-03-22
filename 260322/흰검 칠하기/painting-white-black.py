@@ -18,7 +18,6 @@ for num, direction in commands:
             blocks[i] = 2
             count_b[i] += 1
             cur_index = i
-    print(blocks)
 
 w, b, g = 0, 0, 0
 for i in range(len(blocks)):
