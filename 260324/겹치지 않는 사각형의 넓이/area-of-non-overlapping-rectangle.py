@@ -1,3 +1,4 @@
+from ctypes.macholib.dyld import dyld_find
 
 x1 = [0] * 3
 y1 = [0] * 3
@@ -9,8 +10,8 @@ x1[1], y1[1], x2[1], y2[1] = map(int, input().split())
 x1[2], y1[2], x2[2], y2[2] = map(int, input().split())
 
 
-OFFSET = 100
-MAX = 200
+OFFSET = 1000
+MAX = 2 * OFFSET
 blocks = [[0] * MAX for i in range(MAX)]
 for i in range(2):
     for a in range(x1[i], x2[i]):
