@@ -1,6 +1,6 @@
 
 # Please write your code here.
-OFFSET = 1000
+OFFSET = 10
 MAX = 2 * OFFSET
 blocks = [[0] * (MAX + 1) for _ in range(MAX + 1)]
 
@@ -14,14 +14,18 @@ for n in range(2):
 area = 0
 min_x, min_y = 2 * OFFSET, 2 * OFFSET
 max_x, max_y = -2 * OFFSET, -2 * OFFSET
-
+is_exist = False
 for i in range(MAX + 1):
     for j in range(MAX + 1):
         if blocks[i][j] == 1:
+            is_exist = True
             min_x = min(min_x, i)
             min_y = min(min_y, j)
             max_x = max(max_x, i)
             max_y = max(max_y, j)
 
-size = (max_x - min_x + 1) * (max_y - min_y + 1)
+if is_exist:
+    size = (max_x - min_x + 1) * (max_y - min_y + 1)
+else:
+    size = 0
 print(size)
