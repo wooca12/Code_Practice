@@ -9,6 +9,8 @@ MAX = 2 * OFFSET
 blocks = [[0] * (MAX + 1) for _ in range(MAX + 1)]
 
 for x1, y1 in points:
+    x1 = x1 + OFFSET
+    y1 = y1 + OFFSET
     for i in range(x1, x1 + 8):
         for j in range(y1, y1 + 8):
             blocks[i][j] = 1
