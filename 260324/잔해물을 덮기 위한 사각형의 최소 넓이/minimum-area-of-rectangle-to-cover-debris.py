@@ -1,6 +1,6 @@
 
 # Please write your code here.
-OFFSET = 10
+OFFSET = 1000
 MAX = 2 * OFFSET
 blocks = [[0] * (MAX + 1) for _ in range(MAX + 1)]
 
