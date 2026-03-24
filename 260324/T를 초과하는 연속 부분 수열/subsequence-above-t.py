@@ -4,7 +4,7 @@ arr = list(map(int, input().split()))
 count, max_c = 0, 0
 
 for i in range(n):
-    if i == 0 or arr[i] - arr[i-1] == 1 and arr[i] > t:
+    if i == 0 or arr[i] > arr[i-1]  and arr[i] > t:
         count += 1
     else:
         count = 1
