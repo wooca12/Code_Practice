@@ -1,7 +1,7 @@
 # A: 9s front / 3s back  / 5s front
 # B; 2s back / 2s front / 12s front
 # time: A=B and position A=B
-OFFSET = 100000
+OFFSET = 1000000
 MAX = 2 * OFFSET
 
 n, m = map(int, input().split())
