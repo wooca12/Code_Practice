@@ -35,6 +35,11 @@ a_id, b_id = 0, 0
 for i in range(1, max(len(a_position), len(b_position))):
     a_id = i if i < len(a_position) else a_id
     b_id = i if i < len(b_position) else b_id
-    if a_position[a_id] == b_position[b_id] and a_position[a_id-1] != b_position[b_id-1]:
+    pre_a = i - 1 if i < len(a_position) else a_id
+    pre_b = i - 1 if i < len(b_position) else b_id
+    if a_position[a_id] == b_position[b_id] and a_position[pre_a] != b_position[pre_b]:
         count += 1
+
+
+
 print(count)
