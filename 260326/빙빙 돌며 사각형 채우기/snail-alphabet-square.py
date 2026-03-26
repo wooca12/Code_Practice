@@ -9,7 +9,7 @@ def in_range(x, y):
     return 0 <= x < n and 0 <= y < m
 
 for i in range(n * m):
-    arr[x][y] = alphabet[i]
+    arr[x][y] = alphabet[i % 26]
     nx, ny = x + dx[d], y + dy[d]
     if not in_range(nx, ny) or arr[nx][ny] != 0:
         d = (d + 1) % 4
