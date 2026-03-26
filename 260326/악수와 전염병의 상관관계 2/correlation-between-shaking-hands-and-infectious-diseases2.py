@@ -14,7 +14,7 @@ count_handshakes = [0] * (N + 1)
 answer =  [0] * (N + 1)
 answer[P] = 1
 
-time_check = [[0, 0] for _ in range(250)]
+time_check = [[0, 0] for _ in range(251)]
 for t, x, y in handshakes:
     time_check[t][0] = x
     time_check[t][1] = y
