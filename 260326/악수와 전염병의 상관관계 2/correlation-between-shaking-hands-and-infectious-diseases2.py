@@ -24,13 +24,13 @@ for x, y in time_check:
         continue
     # x와 y 중 한명이라도 감염 & K번 악수 동안만 전파
     # 전염된 x-y끼리도 전파 횟수 포함, 재감염은 아님
-    if answer[x] == 1 and count_handshakes[x] < 2:
+    if answer[x] == 1 and count_handshakes[x] < K:
         count_handshakes[x] += 1
         if answer[y] == 0:
             answer[y] = 1
         else:
             count_handshakes[y] += 1
-    elif answer[y] == 1 and count_handshakes[y] < 2:
+    elif answer[y] == 1 and count_handshakes[y] < K:
         count_handshakes[y] += 1
         if answer[x] == 0:
             answer[x] = 1
