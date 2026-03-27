@@ -11,11 +11,14 @@ def in_range(x, y):
 for i in range(n):
     for j in range(2, n):
         count1 = arr[i][j-2] + arr[i][j-1] + arr[i][j]
+
         for dx, dy in zip(dxs, dys):
             curx, cury = i, j
             while True:
                 nx, ny = curx + dx, cury + dy
                 if not in_range(nx, ny):
+                    break
+                if i == nx and abs(j-dy) < 3 :
                     break
                 count2 = arr[nx][ny-2] + arr[nx][ny-1] + arr[nx][ny]
                 max_count = max(max_count, count1 + count2)
