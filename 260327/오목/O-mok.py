@@ -8,32 +8,42 @@ def print_5x5(grid):
         print()
     print()
 
+def check_list(arr):
+    w = arr[0]
+    for i in range(1, len(arr)):
+        if w == 0 or arr[i] != w:
+            return 0
+    return w
+
 def check_5x5_grid(grid):
-    winner, x, y = 0, 0, 0
-    # 가로, 세로
+    # 행검사
     for r in range(5):
-        sum_r, sum_c = 0, 0
-        for c in range(5):
-            sum_r += grid[r][c]
-            sum_c += grid[c][r]
-        if sum_r == 5 or sum_r == 10:
-            winner, x, y = sum_r // 5, r, c - 2
-        elif sum_c == 5 or sum_c == 10:
-            winner, x, y = sum_c // 5, r - 2, c
-    # 대각선 \ /
+        new_list = grid[r]
+        winner = check_list(new_list)
+        if winner != 0:
+            return winner, r, 2
+    # 열검사
+    for c in range(5):
+        new_list = [grid[i][c] for i in range(5)]
+        winner = check_list(new_list)
+        if winner != 0:
+            return winner, 2, c
+
+    # 대각선 \ 검사
     # 00 11 22 33 44 / 40 31 22 23 13 04
-    sum_a, sum_b = 0, 0
     for r in range(5):
-        sum_a += grid[r][r]
-        sum_b += grid[r][4-r]
+        new_list = [grid[i][i] for i in range(5)]
+        winner = check_list(new_list)
+        if winner != 0:
+            return winner, 2, 2
+    # 대각선 / 검사
+    for c in range(5):
+        new_list = [grid[4-i][i] for i in range(5)]
+        winner = check_list(new_list)
+        if winner != 0:
+            return winner, 2, 2
 
-    if sum_a == 5 or sum_b == 5:
-        winner, x, y = 1, 2, 2
-    elif sum_a == 10 or sum_b == 10:
-        winner, x, y = 2, 2, 2
-
-    return winner, x, y
-
+    return 0, 0, 0
 
 
 flag = False
@@ -51,7 +61,3 @@ for i in range(15):
 print(winner)
 if flag:
     print(x, y)
-
-
-
-
