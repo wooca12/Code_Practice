@@ -18,7 +18,7 @@ for i in range(n):
                 nx, ny = curx + dx, cury + dy
                 if not in_range(nx, ny):
                     break
-                if i == nx and abs(j-dy) < 3 :
+                if i == nx and abs(j-ny) < 3 :
                     break
                 count2 = arr[nx][ny-2] + arr[nx][ny-1] + arr[nx][ny]
                 max_count = max(max_count, count1 + count2)
