@@ -2,7 +2,6 @@ N = int(input())
 
 memo = [-1] * 46
 def fibo(n):
-    print(n)
     if memo[n] != -1:
         return memo[n]
     if n <= 2:
