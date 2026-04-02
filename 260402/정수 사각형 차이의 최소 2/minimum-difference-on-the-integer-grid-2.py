@@ -14,6 +14,7 @@ def print_all(arr):
             print(arr[i][j], end=' ')
         print()
 
+
 def initialize():
     max_dp[0][0], min_dp[0][0] = grid[0][0], grid[0][0]
     dp[0][0] = grid[0][0]
@@ -31,17 +32,21 @@ def initialize():
 def update():
     for i in range(1, n):
         for j in range(1, n):
-            up_diff = max(max_dp[i - 1][j], grid[i][j]) - min(min_dp[i - 1][j], grid[i][j])
-            left_diff = max(max_dp[i][j -1], grid[i][j]) - min(min_dp[i][j - 1], grid[i][j])
-            dp[i][j] = min(left_diff, up_diff)
+            up_max = max(max_dp[i - 1][j], grid[i][j])
+            up_min = min(min_dp[i - 1][j], grid[i][j])
+            left_max = max(max_dp[i][j - 1], grid[i][j])
+            left_min = min(min_dp[i][j - 1], grid[i][j])
 
-            if up_diff > left_diff:
-                max_dp[i][j] = max(max_dp[i][j - 1], grid[i][j])
-                min_dp[i][j] = min(min_dp[i][j - 1], grid[i][j])
-            else:
-                max_dp[i][j] = max(max_dp[i - 1][j], grid[i][j])
-                min_dp[i][j] = min(min_dp[i - 1][j], grid[i][j])
+            max_dp[i][j] = min(up_max, left_max)
+            min_dp[i][j] = max(up_min, left_min)
+
+            dp[i][j] = max_dp[i][j] - min_dp[i][j]
+
+
 initialize()
 update()
+# print_all(max_dp)
+# print_all(min_dp)
+# print_all(dp)
 
 print(dp[n - 1][n - 1])
