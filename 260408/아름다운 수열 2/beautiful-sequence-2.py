@@ -5,10 +5,11 @@ B = list(map(int, input().split()))
 count = 0
 for i in range(N - M + 1):
     exist = True
-    for j in range(i, i + M):
-        if A[j] not in B:
+    for j in range(M):
+        if B[j] not in A[i : i + M]:
             exist = False
-    if exist: 
+            break
+    if exist:
         count += 1
 
 print(count)
