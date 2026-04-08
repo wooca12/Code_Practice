@@ -7,14 +7,14 @@ for _ in range(N):
     candy.append(c)
     pos.append(p)
 
-arr = [0] * 101
+arr = [0] * 401
 
 for i in range(N) :
-    arr[pos[i]] += candy[i]
+    arr[pos[i] + 200] += candy[i]
 
 
 max_num = 0
-for i in range(1, 101 - 2*K):
+for i in range(1, 401 - 2*K):
     sum = 0
     for j in range(i, i + 2*K + 1):
         sum += arr[j]
