@@ -23,12 +23,10 @@ for i in range(start, end + 1):
             elif arr[k] == 'H':
                 count_H += 1
         
-
-        if 0 not in arr[i:j+1] and (count_G > 0 and count_H == 0 or count_H > 0 and count_G == 0):
+        if count_G > 0 and count_H == 0 or count_H > 0 and count_G == 0:
             max_size = max(max_size, j-i)
         elif count_G > 0 and count_H > 0 and count_G == count_H:
             max_size = max(max_size, j-i)
  
-
 
 print(max_size)
