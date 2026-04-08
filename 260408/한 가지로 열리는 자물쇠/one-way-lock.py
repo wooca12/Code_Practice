@@ -7,7 +7,6 @@ count = 0
 for i in range(1, N + 1):
     for j in range(1, N + 1):
         for k in range(1, N + 1):
-            if (i - a) > 2 and (k - b) > 2 and (j - c) > 2:
+            if abs(i - a) > 2 and abs(j - b) > 2 and abs(k - c) > 2:
                 count += 1
-
 print(total - count)
