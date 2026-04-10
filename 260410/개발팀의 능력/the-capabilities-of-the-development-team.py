@@ -1,6 +1,6 @@
 arr = list(map(int, input().split()))
 n = len(arr)
-min_diff = 100
+min_diff = 10000
 flag = False
 
 def get_sum(i, j, k):
@@ -15,7 +15,7 @@ for i in range(n):
         for k in range(n):
             if i != j and i != k and j != k:
                 a, b, c = get_sum(i, j, k)
-                if a != b != c:
+                if a != b and b != c and a != c:
                     min_diff = min(min_diff, abs(max(a,b,c) - min(a,b,c)))
                     flag = True
 if flag: 
