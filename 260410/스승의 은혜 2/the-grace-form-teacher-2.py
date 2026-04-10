@@ -5,16 +5,14 @@ max_count = 0
 P.sort()
 
 for i in range(N):
-    price = P[i] // 2
-    if price > B:
-        continue
-    count = 1
-    for j in range(N):
-        if i == j: 
-            continue
-        price += P[j]
-        if price > B:
-            continue
+    tmp = [P[j] for i in range(N)]
+    tmp[i] /= 2
+
+    count, price = 0, 0
+    for j in range(n):
+        if price + tmp[j] > B:
+            break
+        price += tmp[j]
         count += 1
     max_count = max(max_count, count)
 print(max_count)
