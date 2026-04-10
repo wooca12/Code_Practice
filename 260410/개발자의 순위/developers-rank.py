@@ -1,23 +1,31 @@
 k, n = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(k)]
+new_arr = []
 
-rank = []
-contest = arr[0]
+for i in range(k):
+    r = [0] * n
+    for j in range(n):
+        rank = j + 1
+        dev_num = arr[i][j] - 1
+        r[dev_num] = rank
+
+    new_arr.append(r)
+    
+
+    
+count = 0
 for i in range(n):
     for j in range(n):
         if i == j:
             continue
-        if contest[i] < contest[j]:
-            rank.append((i, j))
-                
-for i in range(1, k):
-    contest = arr[i]
-    new_rank = []
-    for j in range(len(rank)):
-        a, b = rank[j][0], rank[j][1]
-        if contest[a] < contest[b]:
-            new_rank.append((a,b))
-    rank = new_rank
-            
+        flag = True
 
-print(len(rank))
+        for l in range(k):
+            contest = new_arr[l]
+            if contest[i] >= contest[j]:
+                flag = False
+                break
+            
+        if flag :
+            count += 1
+print(count)
