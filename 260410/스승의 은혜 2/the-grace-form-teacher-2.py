@@ -5,7 +5,7 @@ max_count = 0
 P.sort()
 
 for i in range(N):
-    tmp = [P[j] for i in range(N)]
+    tmp = [P[j] for j in range(N)]
     tmp[i] /= 2
 
     count, price = 0, 0
