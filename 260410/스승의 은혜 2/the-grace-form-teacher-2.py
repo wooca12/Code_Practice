@@ -9,7 +9,7 @@ for i in range(N):
     tmp[i] /= 2
 
     count, price = 0, 0
-    for j in range(n):
+    for j in range(N):
         if price + tmp[j] > B:
             break
         price += tmp[j]
