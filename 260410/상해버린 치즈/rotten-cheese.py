@@ -37,10 +37,11 @@ for i in range(1, M+1):
     for j in range(D):
         if m[j] != bad_cheeze:
             continue
-        if p[j] not in need_medicine and fail_check_sick(p[j], t[j]):
-            break
-        else:
-            need_medicine.append(p[j])
+        if p[j] not in need_medicine:
+            if fail_check_sick(p[j], t[j]):
+                break
+            else:
+                need_medicine.append(p[j])
             
     max_count = max(max_count, len(need_medicine))
 
