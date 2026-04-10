@@ -11,11 +11,11 @@ for i in range(1, n+1):
             continue
         correct = True
 
-        for list in arr:
+        for lists in arr:
             id1 = lists.index(i)
             id2 = lists.index(j)
             if id1 >= id2:
-                correct = Fasle
+                correct = False
         if correct:
             count += 1
 print(count)
