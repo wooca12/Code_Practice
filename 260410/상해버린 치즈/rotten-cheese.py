@@ -22,12 +22,9 @@ for _ in range(S):
     sick_p.append(person)
     sick_t.append(time)
 
-def check_sick(person, time):
-    if person not in sick_p:
-        return True
-
+def fail_check_sick(person, time):
     for s in range(S):
-        if person == sick_p[s] and time < sick_t[s]:
+        if person == sick_p[s] and time >= sick_t[s]:
             return True
     return False
 
@@ -36,16 +33,16 @@ max_count = 0
 
 for i in range(1, M+1):
     bad_cheeze = i
-    count = 0
+    need_medicine = []
     for j in range(D):
         if m[j] != bad_cheeze:
             continue
-        if not check_sick(p[j], t[j]):
+        if p[j] not in need_medicine and fail_check_sick(p[j], t[j]):
             break
         else:
-            count += 1
+            need_medicine.append(p[j])
             
-    max_count = max(max_count, count)
+    max_count = max(max_count, len(need_medicine))
 
 print(max_count)
             
