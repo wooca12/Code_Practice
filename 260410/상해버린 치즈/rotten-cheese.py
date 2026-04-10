@@ -38,8 +38,13 @@ for i in range(1, M+1):
     bad_cheeze = i
     count = 0
     for j in range(D):
-        if m[j] == bad_cheeze and check_sick(p[j], t[j]):
+        if m[j] != bad_cheeze:
+            continue
+        if not check_sick(p[j], t[j]):
+            break
+        else:
             count += 1
+            
     max_count = max(max_count, count)
 
 print(max_count)
