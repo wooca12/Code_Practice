@@ -5,29 +5,18 @@ y = [p[1] for p in points]
 
 max_size = 0
 
-def get_size(i1, i2, i3):
-    w, h = 0, 0
-    # x 축에 평행 --> y값 같음
-    if y[i1] == y[i2]:
-        w = abs(x[i1] - x[i2])
-    elif y[i1] == y[i3]:
-        w = abs(x[i1]- x[i3])
-    elif y[i2] == y[i3]:
-        w = abs(x[i2] - x[i3])
-    # y 축에 평행 --> x값 같음
-    if x[i1] == x[i2]:
-        h = abs(y[i1] - y[i2])
-    elif x[i1] == x[i3]:
-        h = abs(y[i1]-y[i3])
-    elif x[i2] == x[i3]:
-        h = abs(y[i2] - y[i3])
+def get_size(x1, y1, x2, y2, x3, y3):
+    return abs((x1*y2 + x2*y3 + x3*y1) - (x2*y1 + x3*y2 + x1*y3))
+
     return w * h
 
 for i in range(n):
     for j in range(i+1, n):
         for k in range(j+1, n):
-            if i == j or j == k or i == k:
-                continue
-            size = get_size(i, j, k)
-            max_size = max(max_size, size)
+            
+            x1, y1 = points[i]
+            x2, y2 = points[j]
+            x3, y3 = points[k]
+            if (x1 == x2 or x2 == x3 or x1 == x3) and (y1 == y2 or y2 == y3 or y1 == y3):
+                max_size = max(max_size, get_size(x1, y1, x2, y2, x3, y3))
 print(max_size)
