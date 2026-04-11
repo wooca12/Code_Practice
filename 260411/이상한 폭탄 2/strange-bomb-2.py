@@ -10,11 +10,11 @@ max_num = 0
 
 for i in range(N):
     bum = False
-    bum_num = []
     for j in range(i+1, N):
         if num[i] == num[j] and (j - i) <= K:
             bum = True
         if bum:
-           max_num = max(max_num, num[j])
+            max_num = max(max_num, num[i])
+
 
 print(max_num)
