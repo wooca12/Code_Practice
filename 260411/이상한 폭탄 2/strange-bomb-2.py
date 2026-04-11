@@ -6,7 +6,7 @@ num = [int(input()) for _ in range(N)]
 # 같은 번호 부여된 폭탄끼리 거리가 K 안에 있으면
 # return : 폭발 폭탄 중 가장 큰 번호
 
-max_num = 0
+max_num = -1
 
 for i in range(N):
     bum = False
