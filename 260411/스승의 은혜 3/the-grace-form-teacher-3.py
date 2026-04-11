@@ -6,8 +6,9 @@ S = [gift[1] for gift in gifts]
 max_count = 0
 
 for i in range(N):
-    P[i] /= 2
-    price_list = [P[a] + S[a] for a in range(N)] 
+    tmp = [p for p in P]
+    tmp[i] //= 2
+    price_list = [tmp[a] + S[a] for a in range(N)] 
     price_list.sort()
 
     price, count = 0, 0
