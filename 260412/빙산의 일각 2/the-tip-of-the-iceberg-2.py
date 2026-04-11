@@ -4,15 +4,15 @@ h = [int(input()) for _ in range(n)]
 max_count = 0
 for k in range(1, max(h) + 1):
     count = 0
-    flag = True
-    for i in range(1, n):
-        if flag and k < h[i]:
+    stop = False
+    for i in range(n):
+        diff = h[i] - k
+        if not stop and diff > 0:
             count += 1
-            flag = False
-        elif k >= h[i]:
-            flag = True
+            stop = True
+        elif stop and diff <= 0:
+            stop = False
     max_count = max(max_count, count)
-
 
 print(max_count)
         
