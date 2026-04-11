@@ -7,20 +7,19 @@ for num in range(X, Y + 1):
     n_arr = [int(n) for n in str(num)]
     
     freq_num  = [0] * 10
+    two_num = []
     for n in n_arr:
         freq_num[n] += 1
+        if n not in two_num:
+            two_num.append(n)
 
-    flag1 = False    
-    flag2 = False
-    for i in range(10):
-        if not flag1 and freq_num[i] == 1:
-            flag1 = True
-        if not flag2 and freq_num[i] >= 2:
-            flag2 = True
-    if flag1 and flag2:
+    if len(two_num) != 2:
+        continue
+    if freq_num[two_num[0]] ==1 and freq_num[two_num[1]] >= 2:
         count += 1
-       
+    elif freq_num[two_num[0]] >= 2 and freq_num[two_num[1]] == 1:
+        count += 1
+    
         
-
 
 print(count)
