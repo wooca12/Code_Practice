@@ -6,7 +6,7 @@ xs, ys = list(set(x)), list(set(y))
 xs.sort(), ys.sort()
 
 
-ans = 0
+ans1 = 0
 for x1 in xs:
     for x2 in xs:
         if x1 == x2:
@@ -19,7 +19,7 @@ for x1 in xs:
             if count == n:
                 ans = 1
                 break
-
+ans2 = 0
 for y1 in ys:
     for y2 in ys:
         if y1 == y2:
@@ -30,10 +30,10 @@ for y1 in ys:
                 if p1 == x or p2 == y1 or p2 == y2 :
                     count += 1
             if count == n:
-                ans = 1
+                ans2 = 1
                 break
 
-print(ans)
+print(ans1 | ans2)
     
             
 
