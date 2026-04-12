@@ -18,8 +18,8 @@ def count_points(x, y):
             num_p[3] += 1
     return num_p
 
-for x in range(min(xs) + 1, max(xs)):
-    for y in range(min(ys) + 1, max(ys)):
+for x in range(max(xs) + 1):
+    for y in range(max(ys) + 1):
         if x % 2 != 0 or y % 2 != 0:
             continue
         num_points = count_points(x, y)
