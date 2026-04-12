@@ -1,14 +1,23 @@
 N = int(input())
 str = input()
 
-min_len = 100
-for j in range(N):
+def count_chr(chr, k):
     count = 0
-    chr = str[:j+1]
-    stop = False
-    for k in range(N - len(chr) + 1):
-        if chr == str[k: k + len(chr)]:
+    for i in range(N - k + 1):
+        if chr == str[i:i+k]:
             count += 1
-    if count == 1:
-        min_len = min(min_len, len(chr))
+    return count
+
+min_len = 100
+
+for k in range(1, N + 1):
+    success = True
+    for i in range(N - k + 1):
+        chr = str[i:i+k]
+        count = count_chr(chr, k)
+        if count != 1:
+            success = False
+            break
+    if success:
+        min_len = min(min_len, k)
 print(min_len)
