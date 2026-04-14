@@ -21,5 +21,5 @@ def is_possible(max_val):
 
 for a in arr[1:n-1]:
     if is_possible(a):
-        minmax = min(minmax, a)
+        minmax = min(minmax, max(a, arr[0], arr[-1]))
 print(minmax)
