@@ -1,12 +1,11 @@
 N, K = map(int, input().split())
 arr = [int(input()) for _ in range(N)]
 
-max_len = 0
-for i in range(N):
-    tmp = [arr[i]]
-    for j in range(i+1, N):
-        tmp.append(arr[j])
-        if max(tmp) - min(tmp) > K:
-            tmp.pop()
-    max_len = max(max_len, len(tmp))
-print(max_len)
+max_count = 0
+for i in range(1, 10001):
+    count = 0
+    for num in arr:
+        if i <= num and num <= i + K:
+            count += 1
+    max_count = max(max_count, count)
+print(max_count)
