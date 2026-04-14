@@ -15,6 +15,7 @@ for x in range(1, 10001):
             success = False
             break
     if success:
-        min_x = min(min_x, x)
+        min_x = x
+        break
             
 print(min_x)
