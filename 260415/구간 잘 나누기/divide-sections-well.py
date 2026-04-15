@@ -1,5 +1,5 @@
 import sys
-, m = map(int, input().split())
+n, m = map(int, input().split())
 a = list(map(int, input().split()))
 
 
@@ -24,7 +24,7 @@ for sum in range(1, MAX + 1):
         # 구간에 해당 숫자를 집어 넣는다
         count += a[j]
 
-        if possible and section <= m:
-            minmax = min(minmax, sum)
+    if possible and section <= m:
+        minmax = min(minmax, sum)
 print(minmax)
 
