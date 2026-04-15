@@ -14,22 +14,23 @@ for i in range(N):
         if j - i > K:
             break
         # 번호가 같지 않으면 안터짐
-        if num[i] != num[i]:
+        if num[i] != num[j]:
             continue
          
         # 인접한 i, j 번호 폭탄이 터졌는지 여부와 횟수를 갱신
         # 번호가 같으면 터짐
         # 이미 터졌는지 확인 -> 안터지면 갱신
-        if not exploded[i]:
-            exploded[i] = True
+        if exploded[i] == False:
             bomb[num[i]] += 1
+            exploded[i] = True
 
-        if not exploded[j]:
-            exploded[j] = True
+        if exploded[j] == False:
             bomb[num[j]] += 1
+            exploded[j] = True
+
 
 for i in range(MAX + 1):
-    if maxval < bomb[i]:
+    if maxval <= bomb[i]:
         maxval = bomb[i]
         maxidx = i
 print(maxidx)
