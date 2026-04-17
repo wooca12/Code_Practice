@@ -9,6 +9,7 @@ mincost = sys.maxsize
 for i in range(1, MAX):
     cost = 0
     for j in range(n):
+        # 구간 [i, i+k] 안에 안들어오면 숫자 벼시킴
         if  arr[j] < i:
             cost += abs(arr[j] - i)
         elif arr[j] > i + k:
