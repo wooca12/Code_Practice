@@ -14,5 +14,7 @@ elif a < c < b < d :
     area = abs(b - a) + abs(d - b)
 elif c < a < d < b : 
     area = abs(b - a) + abs(a - c)
+else:
+    area = abs(b - a)
 
 print(area)
