@@ -2,7 +2,7 @@ a, b = map(int, input().split())
 c, d = map(int, input().split())
 
 # 안겹칠때
-if d < a or b < c:
+if d <= a or b <= c:
     area = abs(b - a) + abs(d - c)
 # 겹칠때 1. B구역이 A 구역에 포함
 elif (a < c < d < b) :
