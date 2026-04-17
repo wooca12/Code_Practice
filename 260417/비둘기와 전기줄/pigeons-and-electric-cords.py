@@ -1,5 +1,5 @@
 N = int(input())
-pigeon_pos = [-1] * (N+1)
+pigeon_pos = [-1] * 11
 moves = []
 count = 0
 for _ in range(N):
