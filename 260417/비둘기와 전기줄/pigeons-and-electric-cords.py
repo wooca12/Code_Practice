@@ -12,6 +12,7 @@ for p, pos in moves:
         pigeon_pos[p] = pos
     elif pigeon_pos[p] != pos:
         count += 1
+        pigeon_pos[p] = pos
 print(count)
     
 
