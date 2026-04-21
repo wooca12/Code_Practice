@@ -7,9 +7,6 @@ for point in range(X):
     speed = 0
     for t in range(10000):
         dist += speed
-        # if point == 6:
-        #     print(point, speed, dist, t)
-
         if speed < 0:
             break
         if dist == X and speed == 1:
@@ -17,8 +14,11 @@ for point in range(X):
             break
         if dist < point:
             speed += 1
-        elif dist >= point and speed != 1:
-            speed -= 1
+        elif dist >= point:
+            remain = X - dist
+            need = (speed + 1) * speed // 2
+            if remain < need:
+                speed -= 1
 
         
 
