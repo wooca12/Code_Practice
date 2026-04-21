@@ -7,8 +7,8 @@ for point in range(X):
     speed = 0
     for t in range(10000):
         dist += speed
-        if point == 6:
-            print(point, speed, dist, t)
+        # if point == 6:
+        #     print(point, speed, dist, t)
 
         if speed < 0:
             break
