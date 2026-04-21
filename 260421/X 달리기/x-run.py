@@ -7,6 +7,7 @@ v = 1
 while True:
     left_dist -= v
     time += 1
+
     # 목적지 도달 시 멈춤
     if left_dist == 0:
         break
@@ -20,6 +21,7 @@ while True:
     # 둘 다 만족 못하면 속도 줄임
     else:
         v -= 1
+        
 print(time)
 
 
