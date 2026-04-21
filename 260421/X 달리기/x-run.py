@@ -13,7 +13,7 @@ while True:
         break
 
     # 속도를 높여도 괜찮을 때
-    if left_dist >= (v + 1) * (v * 2) / 2:
+    if left_dist >= (v + 1) * (v + 2) / 2:
         v += 1
     # 속도를 유지해도 괜찮을 때
     elif left_dist >= v * (v + 1) / 2:
@@ -21,7 +21,7 @@ while True:
     # 둘 다 만족 못하면 속도 줄임
     else:
         v -= 1
-        
+
 print(time)
 
 
