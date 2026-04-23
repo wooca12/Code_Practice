@@ -9,9 +9,9 @@ def get_winner(a, b, c):
         return 1   
     elif a == b and a > c:  # A B
         return 2
-    elif b == c and a < c:  # B C
+    elif b == c and c > a:  # B C
         return 3
-    elif a == c and a < b: # A C
+    elif a == c and a > b: # A C
         return 4
     elif a > b and a > c: # A
         return 5
@@ -32,7 +32,7 @@ for person, score in arr:
             cnt += 1
         b_s += score
     elif person == 'C':
-        if get_winner(a_s, b_s, c_s) != get_winner(a_s, b_s, c_s +score):
+        if get_winner(a_s, b_s, c_s) != get_winner(a_s, b_s, c_s + score):
             cnt += 1
         c_s += score
 
