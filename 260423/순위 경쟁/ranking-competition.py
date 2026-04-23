@@ -20,19 +20,20 @@ def get_winner(a, b, c):
     elif c > a and c > b: # C
         return 7
 
-a, b, c = 0, 0, 0
+a_s, b_s, c_s = 0, 0, 0
 cnt = 0
 for person, score in arr:
     if person == 'A':
-        if get_winner(a, b, c) != get_winner(a + score, b, c):
-            a += score
+        if get_winner(a_s, b_s, c_s) != get_winner(a_s + score, b_s, c_s):
             cnt += 1
+        a_s += score
     elif person == 'B':
-        if get_winner(a, b, c) != get_winner(a, b + score, c):
-            b += score
+        if get_winner(a_s, b_s, c_s) != get_winner(a_s, b_s + score, c_s):
             cnt += 1
+        b_s += score
     elif person == 'C':
-        if get_winner(a, b, c) != get_winner(a, b, c +score):
-            c += score
+        if get_winner(a_s, b_s, c_s) != get_winner(a_s, b_s, c_s +score):
             cnt += 1
+        c_s += score
+
 print(cnt)
