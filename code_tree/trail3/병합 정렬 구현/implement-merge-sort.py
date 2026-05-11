@@ -1,17 +1,7 @@
 n = int(input())
 arr = list(map(int, input().split()))
-
-
-def merge_sort(arr, low, high):
-    if low < high:
-        mid = (low + high) // 2
-        merge_sort(arr, low, mid)
-        merge_sort(arr, mid + 1, high)
-        merge(arr, low, mid, high)
-
-
-
 merged_arr = [0] * n
+
 
 def merge(arr, low, mid, high):
     i = low
@@ -44,6 +34,14 @@ def merge(arr, low, mid, high):
 
     return arr
     
+
+def merge_sort(arr, low, high):
+    if low < high:
+        mid = (low + high) // 2
+        merge_sort(arr, low, mid)
+        merge_sort(arr, mid + 1, high)
+        merge(arr, low, mid, high)
+
 merge_sort(arr, 0, n - 1)
 
 for elem in arr:
