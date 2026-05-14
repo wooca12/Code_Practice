@@ -5,10 +5,6 @@ int main() {
     int a, b, temp;
     cin >> a >> b;
 
-    temp = a;
-    a = b;
-    b = temp;
-
-    cout << a << " " << b << "\n";
+    cout << b << " " << a << endl;
     return 0;
 }
