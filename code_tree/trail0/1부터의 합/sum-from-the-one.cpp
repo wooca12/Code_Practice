@@ -3,15 +3,16 @@ using namespace std;
 
 int main() {
     int n;
+    int sum = 0;
     cin >> n;
 
-    int i;
-    int sum = 0;
-    for (i = 1; i <= 100; i++) {
+    for (int i = 1; i <= 100; i++) {
         sum += i;
-        if (sum >= n) 
+        if (sum >= n) {
+            cout << i << endl;
             break;
+        }
     }
-    cout << i;
+
     return 0;
 }
