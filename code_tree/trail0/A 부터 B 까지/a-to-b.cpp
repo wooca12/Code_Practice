@@ -2,17 +2,16 @@
 using namespace std;
 
 int main() {
-    int a, b;
+    int a, b, i;
     cin >> a >> b;
     
-    while (true) {
-        if (a > b) 
-            break;
-        cout << a << " ";
-        if (a % 2 == 1)
-            a *= 2;
+    i = a;
+    while (i <= b) {
+        cout << i << " ";
+        if (i % 2 == 1)
+            i *= 2;
         else
-            a += 3; 
+            i += 3; 
     }
 
     return 0;
