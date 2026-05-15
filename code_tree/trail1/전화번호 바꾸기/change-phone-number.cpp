@@ -3,8 +3,11 @@ using namespace std;
 
 int main() {
     int a, b, c;
-    char m;
-    cin >> a >> m >> b >> m >> c;
-    cout << 0 << a << "-" << c << "-" << b;
+    cin >> a;
+    cin.get();
+    cin >> b;
+    cin.get();
+    cin >> c;
+    cout << "010-" << c << "-" << b << endl;
     return 0;
 }
