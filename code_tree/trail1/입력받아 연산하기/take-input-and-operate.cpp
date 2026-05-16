@@ -9,4 +9,5 @@ int main() {
     b %= 10;
 
     cout << a << endl << b << endl;
+    return 0;
 }
