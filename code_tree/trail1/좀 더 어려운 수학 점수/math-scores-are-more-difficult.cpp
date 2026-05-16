@@ -6,15 +6,9 @@ int main() {
 
     cin >> a1 >> a2 >> b1 >> b2;
 
-    if (a1 > b1)    
+    if ((a1 > b1) || (a1 == b1) && a2 > b2)
         cout << "A" << endl;
-    else if (a1 < b1)
+    else 
         cout << "B" << endl;
-    else {
-        if (a2 > b2)
-            cout << "A" << endl;
-        else if (a2 < b2)
-            cout << "B" << endl;
-    }
     return 0;
 }
