@@ -11,7 +11,7 @@ int main() {
             cout << n / 2 << endl;
             cnt++;
         }
-        if (cnt == 3)
+        if (cnt >= 3)
             break;
     }
     return 0;
