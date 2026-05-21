@@ -12,29 +12,25 @@ int main() {
     for (int j = 0; j < n2; j++) 
         cin >> b[j];
 
-    int idx = 0;
-    bool satisfied = false;
     
     for (int i = 0; i < n1; i++) {
-        if (a[i] == b[idx]) {
-            satisfied = true;
-            for (int j = 0; j < n2; j++) {
-                if (a[i] == b[j]) {
-                    i++;
-                }
-                else {
-                    satisfied = false;
-                    break;
-                }
-            }
-            if (satisfied)
+        bool success = true;
+        
+        for (int j = 0; j < n2; j++) {
+            if (i + j >= n1) { // a 범위 밖
+                success = false;
                 break;
+            }
+            if(a[i + j] != b[j]) {
+                success = false;
+                break;
+            }
+        }
+        if(success) {
+            cout << "Yes" << endl;
+            return 0;
         }
     }
-    if (satisfied)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
-    
+    cout << "No" << endl;
     return 0;
 }
