@@ -9,7 +9,7 @@ int main() {
 
     for (int j = n - 1; j >= 0; j--) {
         for (int i = n - 1; i >= 0; i--) {
-            if (((num - 1) / n) % 2 == 0)
+            if ((n - 1 - j) % 2 == 0)
                 arr[i][j] = num;
             else 
                 arr[n - i - 1][j] = num;
