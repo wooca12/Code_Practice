@@ -9,23 +9,24 @@ int main() {
     cin >> A;
     string new_A = "";
 
-    char c[1000] = {};
-    int n[1000] = {};
+    char cur_char = A[0];
+    int num_char = 1;
 
     int idx = -1;
-    for (int i = 0; i < A.length(); i++) {
-        if (c[idx] != A[i]) {
-            idx++;
-            c[idx] = A[i];
-            n[idx]++;
+    for (int i = 1; A[i] != '\0'; i++) {
+        if (cur_char == A[i]) {
+            num_char++;
         }
         else {
-            n[idx]++;
+            new_A += cur_char;
+            new_A += to_string(num_char);
+            cur_char = A[i];
+            num_char = 1;
         }
     }
-    for (int i = 0; i <= idx; i++) {
-        new_A += c[i] + to_string(n[i]);
-    }
+    new_A += cur_char;
+    new_A += to_string(num_char);
+    
     cout << new_A.length() << endl;
     cout << new_A << endl;
     return 0;
