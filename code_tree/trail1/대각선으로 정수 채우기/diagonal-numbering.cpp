@@ -1,31 +1,39 @@
 #include <iostream>
 using namespace std;
+int n, m;
+int answer[100][100] = {0};
+int count = 1;
 
 int main() {
-    int n, m, arr[100][100] = {};
-    int cnt = 1;
-
     cin >> n >> m;
 
+    
+    for (int start_col = 0; start_col < m; start_col++) {
+        int cur_col = start_col;
+        int cur_row = 0;
 
-    for (int i = 0; i < n * m; i++) {
-        // 숫자 다 채우면 멈춤
-        if (cnt > n * m)
-            break;
-            
-        for (int j = 0; j <= i; j++) {
-            // 인덱스가 n, m 밖일 때: 채우지 않고 건너 뜀
-            if (j >= n || (i - j) >= m) 
-                continue;
-            // 인덱스 n, m 안일 때: 숫자 채움
-            arr[j][i - j] = cnt;
-            cnt++;
+        while (cur_col >= 0 && cur_row < n) {
+            answer[cur_row][cur_col] = count;
+            cur_col--;
+            cur_row++;
+            count++;
+        }
+    }
+    for (int start_row = 1; start_row < n; start_row++) {
+        int cur_row = start_row;
+        int cur_col = m - 1;
+
+        while (cur_col >= 0 && cur_row < n) {
+            answer[cur_row][cur_col] = count;
+            cur_row++;
+            cur_col--;
+            count++;
         }
     }
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cout << arr[i][j] << " ";
+            cout << answer[i][j] << " ";
         }
         cout << endl;
     }
