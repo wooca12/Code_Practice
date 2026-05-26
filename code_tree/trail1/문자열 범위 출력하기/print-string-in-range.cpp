@@ -7,7 +7,7 @@ int main() {
     getline(cin, str);
 
     for (int i = 2; i < 10; i++) {
-        cout << str[i];
+        printf("%c", str[i]);
     }
 
     return 0;
