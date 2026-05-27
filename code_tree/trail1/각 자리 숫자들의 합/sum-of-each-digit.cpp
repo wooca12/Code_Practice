@@ -12,9 +12,9 @@ int main() {
     int sum = 0;
 
     for (int i = 0; i < s.length(); i++) {
-        sum += int(s[i]) - int('0');
+        sum += s[i] - '0';
     }
-    cout << sum;
+    cout << sum << endl;
 
     return 0;
 }
