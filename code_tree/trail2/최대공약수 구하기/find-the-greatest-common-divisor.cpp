@@ -2,21 +2,20 @@
 
 using namespace std;
 
-void PrintMaxNum(int n, int m) {
-    int max = 0;
-    int last = n > m ? n : m;
-    for (int i = 1; i <= last; i++) {
+void FindGcd(int n, int m) {
+    int gcd = 0;
+    for (int i = 1; i <= min(n, m); i++) {
         if ((n % i == 0) && (m % i == 0))
-            max = i;
+            gcd = i;
     }
-    cout << max << endl;
+    cout << gcd << endl;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
 
-    PrintMaxNum(n, m);
+    FindGcd(n, m);
 
     return 0;
 }
