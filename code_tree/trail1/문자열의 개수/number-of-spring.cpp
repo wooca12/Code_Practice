@@ -3,26 +3,21 @@
 using namespace std;
 
 int main() {
-    string str;
-    string arr[200] = {};
+    string str[201] = {};
 
     int cnt = 0;
-    int idx = 0;
     while (true) {
-        cin >> str;
+        cin >> str[cnt];
 
-        if (str == "0")
+        if (str[cnt] == "0")
             break;
-        arr[idx] = str;
         cnt++;
-        idx++;
     }
-    
+
     cout << cnt << endl;
 
-    for (int i = 0; i < cnt; i++) {
-        if (i % 2 == 0)
-            cout << arr[i] << endl;
+    for (int i = 0; i < cnt; i += 2) {
+        cout << str[i] << endl;
     }
     return 0;
 }
