@@ -2,29 +2,36 @@
 #include <string>
 using namespace std;
 
-void Cal(int a, char o, int b) {
-    if (o == '+')
-        printf("%d %c %d = %d", a, o, b, a + b);
-    else if (o == '-') 
-        printf("%d %c %d = %d", a, o, b, a - b);
-
-    else if (o == '/')  
-        printf("%d %c %d = %d", a, o, b, a / b);
-
-    else if (o == '*')
-        printf("%d %c %d = %d", a, o, b, a * b);
-    else
-        printf("False");
-    
+int Plus(int a, int b) {
+    return a + b;
 }
+int Minus(int a, int b) {
+    return a - b;
+}
+int Times(int a, int b) {
+    return a * b;
+}
+int Divide(int a, int b) {
+    return a / b;
+}
+
 
 int main() {
     int a;
-    int c;
+    int b;
     char o;
-    cin >> a >> o >> c;
+    cin >> a >> o >> b;
    
-    Cal(a, o, c);
+    if (o == '+')
+        printf("%d %c %d = %d", a, o, b, Plus(a, b));
+    else if (o == '-') 
+        printf("%d %c %d = %d", a, o, b, Minus(a, b));
+    else if (o == '/')  
+        printf("%d %c %d = %d", a, o, b, Divide(a, b));
+    else if (o == '*')
+        printf("%d %c %d = %d", a, o, b, Times(a, b));
+    else
+        printf("False");
     
 
     return 0;
