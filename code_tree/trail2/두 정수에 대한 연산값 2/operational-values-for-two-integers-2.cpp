@@ -11,6 +11,7 @@ void Modify(int *a, int *b) {
         *a += 10;
         *b *= 2;
     }
+    return;
 }
 
 int main() {
