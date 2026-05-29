@@ -1,16 +1,18 @@
 #include <iostream>
 using namespace std;
+#define MAX_N 50
 
-void Modify(int n, int a[]) {
+void AbsoluteValue(int n, int a[]) {
     for (int i = 0; i < n; i++) {
         if (a[i] < 0)
             a[i] = -a[i];
     }    
+    return;
 }
 
 int main() {
     int n;
-    int arr[50];
+    int arr[MAX_N];
 
     cin >> n;
 
@@ -18,7 +20,7 @@ int main() {
         cin >> arr[i];
     }
 
-    Modify(n, arr);
+    AbsoluteValue(n, arr);
 
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
