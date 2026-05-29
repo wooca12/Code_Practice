@@ -5,13 +5,13 @@ using namespace std;
 int n;
 int arr[10];
 
-bool IsPrime(int n) {
-    for (int i = 2; i < n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
+// bool IsPrime(int n) {
+//     for (int i = 2; i < n; i++) {
+//         if (n % i == 0)
+//             return false;
+//     }
+//     return true;
+// }
 
 int GetGcd(int a, int b) {
     int ans;
