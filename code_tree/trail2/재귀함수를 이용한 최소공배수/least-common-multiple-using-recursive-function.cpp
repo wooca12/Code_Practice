@@ -32,8 +32,7 @@ int GetLcm(int a, int b) {
 int GetTotalLcm(int n) {
     if (n == 0)
         return arr[0];
-    int a =  GetLcm(arr[n], GetTotalLcm(n - 1));
-    return a;
+    return GetLcm(arr[n], GetTotalLcm(n - 1));
 }
 
 
