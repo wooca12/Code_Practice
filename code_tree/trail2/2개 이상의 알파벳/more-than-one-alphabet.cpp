@@ -3,24 +3,37 @@
 
 using namespace std;
 
-bool Exist2Alphabet(string a) {
-    string alphabets = "";
-    int cnt = 0;
 
-    for (int i = 0; i < a.length(); i++) {
-        if (alphabets.find(a[i]) == string::npos) {
-            cnt++;
-            alphabets += a[i];
+// ****** < MY CODE > *****
+// bool IsMoreTwoAlp(string a) {
+//     string alphabets = "";
+//     int cnt = 0;
+
+//     for (int i = 0; i < a.length(); i++) {
+//         if (alphabets.find(a[i]) == string::npos) {
+//             cnt++;
+//             alphabets += a[i];
+//         }
+//     }
+//     return (cnt >= 2);
+// }
+
+bool IsMoreTwoAlp(string a) {
+    int len = a.length();
+
+    for (int i = 0; i < len; i++) {
+        if (a[i] != a[0]) {
+            return true;
         }
     }
-    return (cnt >= 2);
+    return false;
 }
 
 int main() {
     string A;
     cin >> A;
 
-    if (Exist2Alphabet(A)) {
+    if (IsMoreTwoAlp(A)) {
         cout << "Yes";
     }
     else {
