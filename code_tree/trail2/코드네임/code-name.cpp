@@ -18,20 +18,22 @@ class Employee {
 
 int main() {
     int n = 5;
-    Employee employees[5];
+    Employee users[5];
 
     for (int i = 0; i < n; i++) {
-        cin >> employees[i].code_name >> employees[i].score;
+        string name;
+        int score;
+        cin >> name >> score;
+
+        users[i] = Employee(name, score);
     }
 
-    tuple <string, int> min_score = make_tuple("-1", 1000);
-    
-    for (int i = 0; i < n; i++) {
-        if (get<1>(min_score) > employees[i].score)
-            min_score = make_tuple(employees[i].code_name, employees[i].score);
+    int min_idx = 0;    
+    for (int i = 1; i < n; i++) {
+        if (users[min_idx].score > users[i].score)
+            min_idx = i;
     }
-
-    cout << get<0>(min_score) << " " << get<1>(min_score);
+    cout << users[min_idx].code_name << " " << users[min_idx].score;
 
     return 0;
 }
