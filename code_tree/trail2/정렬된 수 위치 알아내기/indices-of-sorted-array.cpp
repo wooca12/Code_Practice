@@ -6,10 +6,10 @@ using namespace std;
 
 class Number {
     public:
-        int id, number;
+        int index, number;
         
-        Number (int id, int number) {
-            this->id = id;
+        Number (int index, int number) {
+            this->index = index;
             this->number = number;
         }
         Number() {}
@@ -18,39 +18,29 @@ class Number {
 bool cmp (Number a, Number b) {
     if (a.number != b.number)
         return a.number < b.number;
-    return a.id < b.id;
+    return a.index < b.index;
 } 
+
 int main() {
-    int n;
+    int n, num;
     cin >> n;
 
-    Number arr1[MAX_N];
-    Number arr2[MAX_N];
+    Number numbers[MAX_N];
+    int answer[MAX_N];
 
     for (int i = 0; i < n; i++) {
-        int num;
         cin >> num;
-
-        arr1[i] = Number(i + 1, num);
-        arr2[i] = Number(0, num);
-
+        numbers[i] = Number(i, num);
     }
 
-    sort(arr1, arr1 + n, cmp);
+    sort(numbers, numbers + n, cmp);
 
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (arr1[i].number == arr2[j].number) {
-                if (arr2[j].id == 0) {
-                    arr2[j].id = i + 1;
-                    break;
-                }
-            }
-        }
+        answer[numbers[i].index] = i + 1;
     }
 
     for (int i = 0; i < n; i++) {
-        cout << arr2[i].id << " ";
+        cout << answer[i]<< " ";
     }
     return 0;
 }
