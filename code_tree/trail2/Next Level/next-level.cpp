@@ -6,13 +6,13 @@ using namespace std;
 class User {
     public:
     
-    string id;
-    int lv;
+        string id;
+        int lv;
 
-    User(string id = "codetree", int lv = 10) {
-        this->id = id;
-        this->lv = lv;
-    }
+        User(string id = "codetree", int lv = 10) {
+            this->id = id;
+            this->lv = lv;
+        }
 
 };
 
