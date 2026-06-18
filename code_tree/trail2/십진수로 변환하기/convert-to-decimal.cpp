@@ -10,7 +10,7 @@ int main() {
     int num = 0;
 
     for (int i = 0; binary[i] != '\0' ; i++) {
-        num = num * 2 + (int(binary[i]) - int('0'));
+        num = num * 2 + int(binary[i] - '0');
     }
 
     cout << num << endl;
