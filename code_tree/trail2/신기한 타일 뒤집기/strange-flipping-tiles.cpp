@@ -4,30 +4,38 @@ using namespace std;
 #define MAX_K 100000
 
 int n;
-int x;
-char d;
 
-int cur = 0;
 int checked[2 * MAX_K +1] = {};
 
 int main() {
     cin >> n;
 
-    cur += MAX_K;
+    int cur = MAX_K;
+
     for (int i = 0; i < n; i++) {
+        int x;
+        char d;
         cin >> x >> d;
 
         if (d == 'L') {
-            for (int j = cur - x + 1; j < cur + 1; j++) {
-                checked[j] = 1;
+            // for (int j = cur - x + 1; j < cur + 1; j++) 
+            //     checked[j] = 1;
+            // cur -= x - 1;
+
+            while (x--) {
+                checked[cur] = 1;
+                if (x) cur++;
             }
-            cur -= x - 1;
         }
         else {
-            for (int j = cur; j < cur + x; j++) {
-                checked[j] = 2;
+            // for (int j = cur; j < cur + x; j++) 
+            //     checked[j] = 2;
+            // cur += x - 1;
+
+            while(x--) {
+                checked[cur] = 2;
+                if(x) cur--;
             }
-            cur += x - 1;
         }
     }
 
